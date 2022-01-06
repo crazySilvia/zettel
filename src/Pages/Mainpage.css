@@ -9,5 +9,8 @@ div{
 }
 
 body{
+    display: flex;
     background-color: cornflowerblue;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
