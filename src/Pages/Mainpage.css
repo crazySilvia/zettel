@@ -1,0 +1,13 @@
+.Mainpage{
+    display: flex;
+    background-color: darkgray;
+    }
+
+div{
+    text-align: center;
+    color: papayawhip;
+}
+
+body{
+    background-color: cornflowerblue;
+}
