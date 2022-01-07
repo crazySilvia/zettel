@@ -1,8 +1,15 @@
-import {ChangeEvent, ChangeEventHandler, FormEventHandler, useState} from "react";
+import {ChangeEvent, ChangeEventHandler, Dispatch, FormEventHandler, SetStateAction, useState} from "react";
 
-export function FormularListe() {
+
+interface FormularListProps{
+    updateList: (title:string) => void
+
+}
+
+export function FormularListe(props:FormularListProps) {
     //sagt, dass value veränderbar ist
     const [value, setValue] = useState('');
+
     //nimmt die Eingabe und setzt diese auf value
     const handleChange:ChangeEventHandler<HTMLInputElement> = (event) => {
         setValue(event.currentTarget.value);
@@ -10,7 +17,10 @@ export function FormularListe() {
 
     //bei Klick auf erstellen mache Folgendes
     const handleSubmit:FormEventHandler<HTMLFormElement> = (event) => {
-        alert('A name was submitted: ' + value);
+        //ruft setlist auf (in Mainpage)
+        props.updateList(value)
+        //leert value
+        setValue("")
         event.preventDefault();
     };
     return (

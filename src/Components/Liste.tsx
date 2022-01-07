@@ -1,14 +1,19 @@
 import "../Components/Liste.css"
 import Header from "./Header";
 import {FormularArtikel} from "../services/FormularArtikel";
+import {Interface} from "readline";
 
-export function Liste({titleListe}: {titleListe: string}){
+interface ListeProps{
+    liste:string
+
+}
+
+export function Liste(props:ListeProps){
     return(<div>
-        <Header title={titleListe}/>
+        <Header title={props.liste}/>
             <FormularArtikel/>
         <ul>
-            <li>Hund</li>
-            <li>Katze</li>
+
         </ul>
         </div>
     )

@@ -1,17 +1,24 @@
 import {Liste} from "./Liste";
-import React from "react";
+import React, {useState} from "react";
+import "../Components/Listen.css"
+import {FormularListe} from "../services/FormularListe";
+import Header from "./Header";
 
-export function Listen(){
+interface ListenProps{
+    listen:string[]
+}
+
+export function Listen(props:ListenProps){
+
+
+
     return <div>
-        <ul>
-            <li>
-                <Liste titleListe="Kakao"/>
-                <Liste titleListe="Obst"/>
-                <Liste titleListe="Gemüse"/>
-                <Liste titleListe="Geschenke"/>
-                <Liste titleListe="Campingplatz"/>
-                <Liste titleListe="Dana "/>
-            </li>
+        <Header title="Listen"/>
+        <ul>{props.listen.map((value, index) =>
+            (<li key={index}>
+                <Liste liste={value}/>
+            </li>)
+        )}
         </ul>
     </div>
 }
