@@ -2,7 +2,8 @@ import "../Pages/Mainpage.css"
 import Header from "../Components/Header";
 import React, {useState} from "react";
 import {FormularListe} from "../services/FormularListe";
-import {Listen} from "../Components/Listen";
+
+import {Liste} from "../Components/Liste";
 
 export default function Mainpage(){
 
@@ -22,7 +23,7 @@ export default function Mainpage(){
         <div className="mainpage">
             <Header title="Einkaufszettel"/>
             <FormularListe updateList={updateList}  />
-            <Listen listen={list} />
+            <Liste artikel={list} />
         </div>
     )
 }

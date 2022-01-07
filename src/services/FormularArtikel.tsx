@@ -1,8 +1,13 @@
 import {ChangeEvent, ChangeEventHandler, FormEventHandler, useState} from "react";
 
-export function FormularArtikel() {
+interface FormularArtikelProps{
+    updateArtikelList: (value: string) => void
+}
+
+export function FormularArtikel(props:FormularArtikelProps) {
     //sagt, dass der value veränderbar ist
     const [value, setValue] = useState('');
+
     //nimmt die Eingabe und setzt diese auf value
     const handleChange:ChangeEventHandler<HTMLInputElement> = (event) => {
          setValue(event.currentTarget.value);
@@ -10,7 +15,10 @@ export function FormularArtikel() {
 
     //bei Klick auf hinzufügen mache Folgendes
     const handleSubmit:FormEventHandler<HTMLFormElement> = (event) => {
-        alert('A name was submitted: ' + value);
+        //ruft
+        props.updateArtikelList(value)
+        //leert value
+        setValue("")
         event.preventDefault();
     };
     return (

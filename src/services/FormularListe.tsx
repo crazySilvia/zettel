@@ -1,9 +1,7 @@
 import {ChangeEvent, ChangeEventHandler, Dispatch, FormEventHandler, SetStateAction, useState} from "react";
 
-
 interface FormularListProps{
     updateList: (title:string) => void
-
 }
 
 export function FormularListe(props:FormularListProps) {

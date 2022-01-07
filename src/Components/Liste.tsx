@@ -1,20 +1,35 @@
 import "../Components/Liste.css"
-import Header from "./Header";
 import {FormularArtikel} from "../services/FormularArtikel";
-import {Interface} from "readline";
+import React, {useState} from "react";
+import Artikel from "../Models/Artikel";
 
 interface ListeProps{
-    liste:string
-
+    artikel:string[]
 }
 
 export function Liste(props:ListeProps){
+
+//erstellt und aktualisiert Artikelliste
+const [list, setList] = useState([""]);
+
+const updateArtikelList = (title:string) => {
+    //erstellt Kopie der Liste und
+    //fügt neue Liste direkt hinzu
+    const aktuellerStand = [...list, title];
+    //setzt Liste auf aktuellem Stand
+    setList(aktuellerStand)
+}
     return(<div>
-        <Header title={props.liste}/>
-            <FormularArtikel/>
-        <ul>
+
+        <ul>{props.artikel.map((value, index) =>
+            (<li key={index}>
+                <Artikel name={value} />
+            </li>)
+        )}
 
         </ul>
         </div>
     )
 }
+
+//{id={5}
