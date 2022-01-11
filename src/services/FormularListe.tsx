@@ -1,4 +1,4 @@
-import {ChangeEvent, ChangeEventHandler, Dispatch, FormEventHandler, SetStateAction, useState} from "react";
+import {ChangeEventHandler, FormEventHandler, useState} from "react";
 
 interface FormularListProps{
     updateList: (title:string) => void
@@ -23,13 +23,13 @@ export function FormularListe(props:FormularListProps) {
     };
     return (
         <form onSubmit={handleSubmit}>
-            <label>Liste:
+            <label>Artikel:
                 <input type="text"
                        value={value}
                        onChange={handleChange}
                 />
             </label>
-            <input type="submit" value="erstellen" />
+            <input type="submit" value="hinzufügen" />
         </form>
     );
 }
