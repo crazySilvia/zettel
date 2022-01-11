@@ -5,6 +5,8 @@ import {FormularListe} from "../services/FormularListe";
 
 export function Liste(){
     //erstellt und aktualisiert Liste
+    //da die Liste leer ist aber TypeScript Typen braucht, typecasten
+    //wir hier das Array in ein Stringarray durch "as Array<string>"
     const [artikel, setArtikel] = useState([] as Array<string>);
 
     const updateArtikel = (title:string) => {
